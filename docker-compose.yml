@@ -1,0 +1,83 @@
+version: "3.8"
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    volumes:
+      - data:/data
+      - ./mods:/data/mods
+      # - ./mods:/data/mods
+    container_name: mc_server
+    environment:
+      EULA: "true"
+      TYPE: FORGE
+      # FABRIC_LOADER_VERSION: 0.15.7
+      # FORCE_REDOWNLOAD: true
+      REPLACE_ENV_DURING_SYNC: true
+      INIT_MEMORY: 1G
+      MAX_MEMORY: 2G
+      ONLINE_MODE: "false"
+      VERSION: "1.20.1"
+      MOTD: "Server de los pibes"
+      DIFFICULTY: "hard"
+      MAX_PLAYERS: 5
+      VIEW_DISTANCE: 12
+      SERVER_NAME: "mc_server"
+      ENABLE_WHITELIST: false
+      SPAWN_PROTECTION: 5
+      # WHITELIST: |
+      #   MateDi9z
+      OPS: |
+        MateDi9z
+
+      # Mondrinth
+      MODRINTH_PROJECTS: |
+        create
+        createaddition
+        create-steam-n-rails
+        tectonic
+        terralith
+        evilcraft
+        vampirism
+        vampirism-integrations
+        more-beautiful-torches
+        deeperdarker:tqPSIRGd
+        nullscape
+        blue-skies
+        naturalist
+        waystones
+        edf-remastered
+        nyfs-spiders
+        ultris
+        just-hammers
+        advancement-plaques
+        structure-gel-api
+        iceberg
+        minecraft-comes-alive-reborn
+        yungs-api
+        yungs-better-mineshafts
+        yungs-better-ocean-monuments
+        yungs-better-dungeons
+        yungs-better-strongholds
+        yungs-better-nether-fortresses
+        yungs-better-witch-huts
+        yungs-better-desert-temples
+        yungs-bridges
+        yungs-extras
+        yungs-better-jungle-temples
+
+      # supplementaries
+      MODRINTH_DOWNLOAD_DEPENDENCIES: "required"
+      MODRINTH_ALLOWED_VERSION_TYPE: beta
+
+      # Vanilla Tweaks
+      VANILLATWEAKS_SHARECODE: KvFzis, OBoZSV
+
+    ports:
+      - "25565:25565"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+
+volumes:
+  data:
