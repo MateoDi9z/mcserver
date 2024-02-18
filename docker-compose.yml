@@ -11,7 +11,6 @@ services:
     environment:
       EULA: "true"
       TYPE: FORGE
-      # FABRIC_LOADER_VERSION: 0.15.7
       # FORCE_REDOWNLOAD: true
       REPLACE_ENV_DURING_SYNC: true
       INIT_MEMORY: 1G
